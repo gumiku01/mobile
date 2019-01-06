@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/background">
+
+    <!-- Header -->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/text_red"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="25dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="8dp"
+            android:background="@mipmap/back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tb_note_payout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tb_outcome_selector"
+            android:text="payout"
+            android:textColor="@drawable/tb_text_selector"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tb_note_income"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"/>
+
+        <TextView
+            android:id="@+id/tb_note_income"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tb_note_payout"
+            android:background="@drawable/tb_income_selector"
+            android:text="income"
+            android:textColor="@drawable/tb_text_selector"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tb_note_payout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <!-- central part -->
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:background="@drawable/elevation_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/note_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="payout"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.464"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/item_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
+            android:text="Description: "
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/description_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/note_title" />
+
+        <EditText
+            android:id="@+id/description_input"
+            android:layout_width="224dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/item_description"
+            app:layout_constraintTop_toBottomOf="@id/note_title" />
+
+        <TextView
+            android:id="@+id/item_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="52dp"
+            android:text="Type: "
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/type_checkbox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_description" />
+
+        <Button
+            android:id="@+id/type_checkbox"
+            android:layout_width="57dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rb_detail_shape"
+            android:text="type"
+            android:singleLine="true"
+            app:layout_constraintEnd_toStartOf="@+id/item_money"
+            app:layout_constraintStart_toEndOf="@+id/item_type"
+            app:layout_constraintTop_toBottomOf="@+id/description_input" />
+
+        <TextView
+            android:id="@+id/item_money"
+            android:layout_width="74dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="8dp"
+            android:text="money: "
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/money_input"
+            app:layout_constraintTop_toBottomOf="@+id/description_input" />
+
+        <EditText
+            android:id="@+id/money_input"
+            android:layout_width="123dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="37dp"
+            android:layout_marginEnd="10dp"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_input" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <!-- numerical keyboarder -->
+    <LinearLayout
+        android:id="@+id/keyboard"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <View
+                style="@style/horizontal_decoration_style"
+                android:background="#8c8c8c"
+                />
+            <TextView
+                android:id="@+id/tb_calc_num_1"
+                android:text="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:background="@drawable/bg_radius_click"
+                android:textColor="#000000" />
+            <View
+                style="@style/horizontal_decoration_style"
+                android:background="#8c8c8c"/>
+            <TextView
+                android:id="@+id/tb_calc_num_4"
+                android:text="4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:background="@drawable/bg_radius_click"
+                android:gravity="center"
+                android:textColor="#000000" />
+            <View
+                style="@style/horizontal_decoration_style"
+                android:background="#8c8c8c"/>
+            <TextView
+                android:id="@+id/tb_calc_num_7"
+                android:text="7"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:background="@drawable/bg_radius_click"
+                android:gravity="center"
+                android:textColor="#000000" />
+            <View
+                style="@style/horizontal_decoration_style"
+                android:background="#8c8c8c"/>
+            <TextView
+                android:id="@+id/tb_calc_num_dot"
+                android:text="."
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:background="@drawable/bg_radius_click"
+                android:textColor="#000000" />
+        </LinearLayout>
+        <View
+            style="@style/vertical_decoration_style"
+            android:background="#8c8c8c"
+            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <View
+                style="@style/horizontal_decoration_style"
+                android:background="#8c8c8c"
+                />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+                <TextView
+                    android:id="@+id/tb_calc_num_2"
+                    android:text="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:background="@drawable/bg_radius_click"
+                    android:gravity="center"
+                    android:textColor="#000000" />
+                <View
+                    style="@style/vertical_decoration_style"
+                    android:background="#8c8c8c"
+                    />
+                <TextView
+                    android:id="@+id/tb_calc_num_3"
+                    android:text="3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_radius_click"
+                    android:textColor="#000000" />
+            </LinearLayout>
+            <View
+                style="@style/horizontal_decoration_style"
+                android:background="#8c8c8c"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+                <TextView
+                    android:id="@+id/tb_calc_num_5"
+                    android:text="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:background="@drawable/bg_radius_click"
+                    android:gravity="center"
+                    android:textColor="#000000" />
+                <View
+                    style="@style/vertical_decoration_style"
+                    android:background="#8c8c8c"
+                    />
+                <TextView
+                    android:id="@+id/tb_calc_num_6"
+                    android:text="6"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_radius_click"
+                    android:textColor="#000000" />
+            </LinearLayout>
+            <View
+                style="@style/horizontal_decoration_style"
+                android:background="#8c8c8c"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+                <TextView
+                    android:id="@+id/tb_calc_num_8"
+                    android:text="8"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:background="@drawable/bg_radius_click"
+                    android:gravity="center"
+                    android:textColor="#000000" />
+                <View
+                    style="@style/vertical_decoration_style"
+                    android:background="#8c8c8c"
+                    />
+                <TextView
+                    android:id="@+id/tb_calc_num_9"
+                    android:text="9"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_radius_click"
+                    android:textColor="#000000" />
+            </LinearLayout>
+            <View
+                style="@style/horizontal_decoration_style"
+                android:background="#8c8c8c"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+                <TextView
+                    android:id="@+id/tb_calc_num_0"
+                    android:text="0"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:background="@drawable/bg_radius_click"
+                    android:textColor="#000000" />
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            style="@style/vertical_decoration_style"
+            android:background="#8c8c8c"
+            />
+
+        <View
+            style="@style/vertical_decoration_style"
+            android:background="#8c8c8c"
+            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <View
+                style="@style/horizontal_decoration_style"
+                android:background="#8c8c8c" />
+            <RelativeLayout
+                android:id="@+id/tb_calc_num_del"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/tb_calc_del"
+                    />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tb_calc_num_done"
+                android:text="SAVE"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:background="@color/red"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>

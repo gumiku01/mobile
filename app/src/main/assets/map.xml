@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MapElements>
+    <basicInformation>
+        <width>10</width>
+        <height>10</height>
+    </basicInformation>
+
+    <Elements>
+        <Element>
+            <type>8</type>
+            <xCoordinate>0</xCoordinate>
+            <yCoordinate>0</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>1</type>
+            <xCoordinate>1</xCoordinate>
+            <yCoordinate>0</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>1</type>
+            <xCoordinate>2</xCoordinate>
+            <yCoordinate>0</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>7</type>
+            <xCoordinate>3</xCoordinate>
+            <yCoordinate>0</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>2</type>
+            <xCoordinate>0</xCoordinate>
+            <yCoordinate>1</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>2</type>
+            <xCoordinate>3</xCoordinate>
+            <yCoordinate>1</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>2</type>
+            <xCoordinate>0</xCoordinate>
+            <yCoordinate>2</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>11</type>
+            <xCoordinate>2</xCoordinate>
+            <yCoordinate>2</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>2</type>
+            <xCoordinate>3</xCoordinate>
+            <yCoordinate>2</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>6</type>
+            <xCoordinate>0</xCoordinate>
+            <yCoordinate>3</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>1</type>
+            <xCoordinate>1</xCoordinate>
+            <yCoordinate>3</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>1</type>
+            <xCoordinate>2</xCoordinate>
+            <yCoordinate>3</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>3</type>
+            <xCoordinate>3</xCoordinate>
+            <yCoordinate>3</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <!-- *********************************************************************************** -->
+
+        <Element>
+            <type>8</type>
+            <xCoordinate>4</xCoordinate>
+            <yCoordinate>0</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>1</type>
+            <xCoordinate>5</xCoordinate>
+            <yCoordinate>0</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>1</type>
+            <xCoordinate>6</xCoordinate>
+            <yCoordinate>0</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>1</type>
+            <xCoordinate>7</xCoordinate>
+            <yCoordinate>0</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>1</type>
+            <xCoordinate>8</xCoordinate>
+            <yCoordinate>0</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>7</type>
+            <xCoordinate>9</xCoordinate>
+            <yCoordinate>0</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>2</type>
+            <xCoordinate>4</xCoordinate>
+            <yCoordinate>1</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>2</type>
+            <xCoordinate>9</xCoordinate>
+            <yCoordinate>1</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>2</type>
+            <xCoordinate>4</xCoordinate>
+            <yCoordinate>2</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>13</type>
+            <xCoordinate>8</xCoordinate>
+            <yCoordinate>2</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>2</type>
+            <xCoordinate>9</xCoordinate>
+            <yCoordinate>2</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>6</type>
+            <xCoordinate>4</xCoordinate>
+            <yCoordinate>3</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>1</type>
+            <xCoordinate>5</xCoordinate>
+            <yCoordinate>3</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>1</type>
+            <xCoordinate>6</xCoordinate>
+            <yCoordinate>3</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>1</type>
+            <xCoordinate>7</xCoordinate>
+            <yCoordinate>3</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>1</type>
+            <xCoordinate>8</xCoordinate>
+            <yCoordinate>3</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>3</type>
+            <xCoordinate>9</xCoordinate>
+            <yCoordinate>3</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <!-- *********************************************************************************** -->
+
+        <Element>
+            <type>17</type>
+            <xCoordinate>5</xCoordinate>
+            <yCoordinate>9</yCoordinate>
+            <level>1</level>
+        </Element>
+
+        <Element>
+            <type>15</type>
+            <xCoordinate>9</xCoordinate>
+            <yCoordinate>9</yCoordinate>
+            <level>1</level>
+        </Element>
+
+
+    </Elements>
+
+</MapElements>

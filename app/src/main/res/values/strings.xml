@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Money Manager</string>
+    <string name="first_fragment_title">Book Manager</string>
+
+    <string name="first_title">detail</string>
+    <string name="second_title">take note</string>
+    <string name="third_title">graph</string>
+    <string name="four_title">city</string>
+</resources>
