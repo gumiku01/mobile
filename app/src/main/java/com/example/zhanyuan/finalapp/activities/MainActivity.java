@@ -4,6 +4,8 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.ActivityCompat;
@@ -13,6 +15,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -22,8 +25,13 @@ import android.widget.Toast;
 import com.example.zhanyuan.finalapp.R;
 import com.example.zhanyuan.finalapp.fragments.MenuFirstFragment;
 import com.example.zhanyuan.finalapp.fragments.MenuGraphFragment;
+import com.example.zhanyuan.finalapp.utils.DatabaseSchema;
 import com.example.zhanyuan.finalapp.utils.MessageCode;
+import com.example.zhanyuan.finalapp.utils.MyDatabaseHelper;
+import com.example.zhanyuan.finalapp.utils.TestData;
 import com.example.zhanyuan.finalapp.views.BaseBottomBar;
+
+import java.io.InputStream;
 
 public class MainActivity extends BaseActivity implements BaseBottomBar.OnBottomBarListener {
 
@@ -67,9 +75,17 @@ public class MainActivity extends BaseActivity implements BaseBottomBar.OnBottom
         Container = findViewById(R.id.Container);
         mBottomBar = findViewById(R.id.main_bottom_bar);
 
-
+        // Permissions
         CheckPermission(Manifest.permission.READ_EXTERNAL_STORAGE);
         CheckPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        MyDatabaseHelper myDatabaseHelper = new MyDatabaseHelper(mContext, "my.db", null, 1);
+        SQLiteDatabase db = myDatabaseHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + DatabaseSchema.DataSchema.tableName, null);
+        if(cursor.getCount() < 50){
+            TestData.AddTestData(this);
+        }
+
     }
 
     @Override
