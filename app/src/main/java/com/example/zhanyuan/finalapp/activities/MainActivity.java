@@ -1,12 +1,16 @@
 package com.example.zhanyuan.finalapp.activities;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -62,6 +66,10 @@ public class MainActivity extends BaseActivity implements BaseBottomBar.OnBottom
         rightBtn = findViewById(R.id.right_btn);
         Container = findViewById(R.id.Container);
         mBottomBar = findViewById(R.id.main_bottom_bar);
+
+
+        CheckPermission(Manifest.permission.READ_EXTERNAL_STORAGE);
+        CheckPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
     }
 
     @Override
@@ -144,5 +152,24 @@ public class MainActivity extends BaseActivity implements BaseBottomBar.OnBottom
         if(index != 2)
             this.index = index;
         return ft;
+    }
+
+    private void CheckPermission(String permission){
+
+        if (ContextCompat.checkSelfPermission(this, permission)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
+                // Show an expanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+            } else {
+
+                // No explanation needed, we can request the permission.
+
+                ActivityCompat.requestPermissions(this, new String[]{permission}, 5);
+            }
+        }
     }
 }

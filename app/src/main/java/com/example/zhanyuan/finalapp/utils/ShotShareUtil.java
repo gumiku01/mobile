@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.v4.content.FileProvider;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
@@ -71,8 +72,10 @@ public class ShotShareUtil {
         if (imagePath != null){
             Intent intent = new Intent(Intent.ACTION_SEND); // 启动分享发送的属性
             File file = new File(imagePath);
-            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));// 分享的内容
+
+            intent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".provider", file));// 分享的内容
             intent.setType("image/*");// 分享发送的数据类型
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             Intent chooser = Intent.createChooser(intent, "Share screen shot");
             if(intent.resolveActivity(context.getPackageManager()) != null){
                 context.startActivity(chooser);

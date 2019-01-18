@@ -35,7 +35,6 @@ import com.example.zhanyuan.finalapp.CityObjects.PublicArea;
 import com.example.zhanyuan.finalapp.CityObjects.SpecialBuilding;
 import com.example.zhanyuan.finalapp.CityObjects.Street;
 import com.example.zhanyuan.finalapp.activities.CityActivity;
-import com.example.zhanyuan.finalapp.utils.ShotShareUtil;
 import com.example.zhanyuan.finalapp.utils.UtilConstants;
 import com.example.zhanyuan.finalapp.R;
 import com.example.zhanyuan.finalapp.utils.MessageCode;
@@ -184,7 +183,8 @@ public class CitySurfaceView extends SurfaceView implements SurfaceHolder.Callba
     }
 
     public void Stop(){
-        mThread.interrupt();
+        if(mThread != null)
+            mThread.interrupt();
         mThread = null;
         mBitmap.recycle();
         handlerThread.quitSafely();
