@@ -1,5 +1,6 @@
 package com.example.zhanyuan.finalapp.activities;
 
+
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,6 +19,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.zhanyuan.finalapp.utils.ShotShareUtil;
 import com.example.zhanyuan.finalapp.utils.UtilConstants;
 import com.example.zhanyuan.finalapp.R;
 import com.example.zhanyuan.finalapp.adapters.MoneyListAdapter;
@@ -30,7 +32,7 @@ import com.example.zhanyuan.finalapp.views.CitySurfaceView;
 public class CityActivity extends AppCompatActivity {
 
     private CitySurfaceView citySurfaceView;
-    private Button editButton;
+    private Button editButton, shareButton;
     private Button streetButton, apartmentButton, specialButton, publicButton;
     private PopupWindow editPopWindow;
 
@@ -57,6 +59,12 @@ public class CityActivity extends AppCompatActivity {
                 initPopWindow();
             }
         });
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShotShare();
+            }
+        });
         level_text.setText(sph.read("level"));
         money_text.setText("total: " + sph.read("total"));
 
@@ -73,6 +81,7 @@ public class CityActivity extends AppCompatActivity {
     private void bindView(){
         citySurfaceView = (CitySurfaceView)findViewById(R.id.cityView);
         editButton = (Button)findViewById(R.id.editButton);
+        shareButton = (Button)findViewById(R.id.shareButton);
         level_text = (TextView)findViewById(R.id.levelText);
         money_text = (TextView)findViewById(R.id.moneyText);
 
@@ -314,6 +323,14 @@ public class CityActivity extends AppCompatActivity {
     public void UpdateView(){
         level_text.setText(sph.read("level"));
         money_text.setText("total: " + sph.read("total"));
+    }
+
+    private void ShotShare(){
+        Message msg = new Message();
+        msg.what = MessageCode.SCREENSHOT;
+        citySurfaceView.mHandler.sendMessage(msg);
+
+        ShotShareUtil.shotShare(this, citySurfaceView);
     }
 
 }

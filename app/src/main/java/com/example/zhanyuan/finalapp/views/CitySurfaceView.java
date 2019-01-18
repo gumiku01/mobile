@@ -35,6 +35,7 @@ import com.example.zhanyuan.finalapp.CityObjects.PublicArea;
 import com.example.zhanyuan.finalapp.CityObjects.SpecialBuilding;
 import com.example.zhanyuan.finalapp.CityObjects.Street;
 import com.example.zhanyuan.finalapp.activities.CityActivity;
+import com.example.zhanyuan.finalapp.utils.ShotShareUtil;
 import com.example.zhanyuan.finalapp.utils.UtilConstants;
 import com.example.zhanyuan.finalapp.R;
 import com.example.zhanyuan.finalapp.utils.MessageCode;
@@ -209,9 +210,9 @@ public class CitySurfaceView extends SurfaceView implements SurfaceHolder.Callba
             // draw elements we need
             synchronized (surfaceHolder){
                 mCanvas = surfaceHolder.lockCanvas();
-                MyBackgroundDraw();
-                MyBorderDraw();
-                MyCityDraw();
+                MyBackgroundDraw(mCanvas);
+                MyBorderDraw(mCanvas);
+                MyCityDraw(mCanvas);
                 //MyTextDraw();
                 surfaceHolder.unlockCanvasAndPost(mCanvas);
             }
@@ -268,8 +269,14 @@ public class CitySurfaceView extends SurfaceView implements SurfaceHolder.Callba
                         sph.save("level", String.valueOf(infraInUpgrade.getLevel()));
                         Expand();
                     }
-
                     infraInUpgrade = null;
+                }
+                if(msg.what == MessageCode.SCREENSHOT){
+                    //ShotShareUtil.shotShare();
+
+                    Bitmap bitmap = Bitmap.createBitmap(screen_width, screen_height, Bitmap.Config.ARGB_8888);
+                    Canvas canvasShot = new Canvas(bitmap);
+                    draw(canvasShot);
                 }
             }
         };
@@ -438,31 +445,31 @@ public class CitySurfaceView extends SurfaceView implements SurfaceHolder.Callba
     }
 
     // Draw the background
-    private void MyBackgroundDraw(){
-        mCanvas.drawBitmap(mBitmap,0,0, mPaint);
+    private void MyBackgroundDraw(Canvas canvas){
+        canvas.drawBitmap(mBitmap,0,0, mPaint);
     }
 
     // Draw the border of map
-    private void MyBorderDraw(){
+    private void MyBorderDraw(Canvas canvas){
         mPaint.setColor(Color.BLACK);
         int[] top = ComputeMapCoordinateToPixel(0,0);
         int[] right = ComputeMapCoordinateToPixel(0, mapCol);
         int[] bottom = ComputeMapCoordinateToPixel(mapRow, mapCol);
         int[] left = ComputeMapCoordinateToPixel(mapRow, 0);
-        mCanvas.drawLine(top[1] - (UtilConstants.TILE_WIDTH / 2), top[0] - UtilConstants.TILE_HEIGHT,
+        canvas.drawLine(top[1] - (UtilConstants.TILE_WIDTH / 2), top[0] - UtilConstants.TILE_HEIGHT,
                 right[1] - UtilConstants.TILE_WIDTH / 2, right[0] - UtilConstants.TILE_HEIGHT, mPaint);
-        mCanvas.drawLine(right[1] - UtilConstants.TILE_WIDTH / 2, right[0] - UtilConstants.TILE_HEIGHT,
+        canvas.drawLine(right[1] - UtilConstants.TILE_WIDTH / 2, right[0] - UtilConstants.TILE_HEIGHT,
                 bottom[1] - UtilConstants.TILE_WIDTH / 2, bottom[0] - UtilConstants.TILE_HEIGHT, mPaint);
-        mCanvas.drawLine(bottom[1] - UtilConstants.TILE_WIDTH / 2, bottom[0] - UtilConstants.TILE_HEIGHT,
+        canvas.drawLine(bottom[1] - UtilConstants.TILE_WIDTH / 2, bottom[0] - UtilConstants.TILE_HEIGHT,
                 left[1] - UtilConstants.TILE_WIDTH / 2, left[0] - UtilConstants.TILE_HEIGHT, mPaint);
-        mCanvas.drawLine(left[1] - UtilConstants.TILE_WIDTH / 2, left[0] - UtilConstants.TILE_HEIGHT,
+        canvas.drawLine(left[1] - UtilConstants.TILE_WIDTH / 2, left[0] - UtilConstants.TILE_HEIGHT,
                 top[1] - (UtilConstants.TILE_WIDTH / 2), top[0] - UtilConstants.TILE_HEIGHT, mPaint);
     }
 
     /**
      * Draw all element on the map
      */
-    private void MyCityDraw(){
+    private void MyCityDraw(Canvas canvas){
         int[] coordinate;
         int x, y;
         Infrastructure elem;
@@ -480,7 +487,7 @@ public class CitySurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
 
                         elem.setMyPosition(x, y);
-                        elem.MyDraw(mCanvas, mPaint);
+                        elem.MyDraw(canvas, mPaint);
                     }
                 }
             }
@@ -899,7 +906,8 @@ public class CitySurfaceView extends SurfaceView implements SurfaceHolder.Callba
         optionWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
         optionWindow.showAtLocation(view, Gravity.NO_GRAVITY, pos_x,pos_y);
 
-        editButton = (Button)view.findViewById(R.id.editBuildingButton);
+
+
         infoButton = (Button)view.findViewById(R.id.infoButton);
         upgradeButton = (Button)view.findViewById(R.id.upgradeButton);
 
@@ -973,5 +981,15 @@ public class CitySurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
         map = tempMap;
     }
+
+
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+
+        MyBackgroundDraw(canvas);
+        MyBorderDraw(canvas);
+        MyCityDraw(canvas);
+    }
+
 
 }
