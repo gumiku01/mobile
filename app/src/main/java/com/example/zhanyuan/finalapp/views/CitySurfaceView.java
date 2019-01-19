@@ -910,6 +910,7 @@ public class CitySurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
         infoButton = (Button)view.findViewById(R.id.infoButton);
         upgradeButton = (Button)view.findViewById(R.id.upgradeButton);
+        editButton = (Button) view.findViewById(R.id.editBuildingButton);
 
         editButton.setOnClickListener(new OnClickListener() {
             @Override
